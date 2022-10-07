@@ -1,0 +1,19 @@
+User user = new User(
+				"abhish29",
+				"12345",
+				"abhishek",
+				"shaw",
+				"abhishekshaw813@gmail.com",
+				"9883153542",
+				"default.png");
+
+		Role role1 = new Role(
+				45L,
+				"USER");
+
+		Set<UserRole> user
+        RoleSet = new HashSet<>();
+		UserRole userRole1 = new UserRole(user, role1);
+		userRoleSet.add(userRole1);
+		User user1 = this.userService.createUser(user, userRoleSet);
+		System.out.println(user1.getFirstName());
