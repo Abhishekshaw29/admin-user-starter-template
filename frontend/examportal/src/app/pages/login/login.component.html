@@ -1,0 +1,33 @@
+<div class="bootstrap-wrapper">
+    <div class="container my-4 mx-4">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div class="container text-center my-2">
+            <img class=" img-shape" src="../../../assets/login.png" alt="profile">
+          </div>
+          <h1 class="text-center"> Login Here !</h1>
+        <mat-card>
+          <form  class="text-center container">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Username</mat-label>
+              <input name="userName" matInput placeholder="E.g abhiya2932" required>
+              <mat-hint>valid username !!</mat-hint>
+            </mat-form-field>
+          <!--  -->
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>password</mat-label>
+              <input type="password" name="password" required="true" matInput
+                placeholder="E.g must include character, number and special character">
+            </mat-form-field>
+            <!--  -->
+            <div class="container text-center">
+                <button class="mx-2" mat-raised-button color="warn" type="reset">Reset</button>
+                <button class="mx-2" mat-raised-button color="accent" type="submit">Register</button>
+              </div>
+          </form>
+        </mat-card>
+        </div>
+  
+      </div>
+    </div>
+  </div>

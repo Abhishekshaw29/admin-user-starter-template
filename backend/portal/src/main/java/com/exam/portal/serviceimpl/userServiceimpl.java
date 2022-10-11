@@ -1,5 +1,6 @@
 package com.exam.portal.serviceimpl;
 
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +44,28 @@ public class userServiceimpl implements UserService{
         // TODO Auto-generated method stub
         return this.userRepository.findByUsername(Username);
     }
+
+    @Override
+    public User updateUser(User user) throws Exception {
+        User local = getByUser(user.getUserName());
+        
+        local.setProfile(user.getProfile());
+        local.setEmail(user.getEmail());
+        local.setFirstName(user.getFirstName());
+        local.setLastName(user.getLastName());
+        local.setPhone(user.getPhone());
+        local.setPassword(user.getPassword());
+        this.userRepository.save(local);
+        return local;
+    }
+
+    @Override
+    public void deleteByUsername(String username) throws Exception {
+        // TODO Auto-generated method stub
+
+        User user = this.getByUser(username);
+        this.userRepository.delete(user);
+    }
+    
     
 }

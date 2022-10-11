@@ -15,4 +15,9 @@ public interface UserService {
 
     //get user by username
     public User getByUser(String Username) throws Exception;
+
+    public User updateUser(User user) throws Exception;
+
+    public void deleteByUsername(String username) throws Exception;
+
 }

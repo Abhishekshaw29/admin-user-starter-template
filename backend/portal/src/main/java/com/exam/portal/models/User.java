@@ -37,7 +37,8 @@ public class User {
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "user")
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
 	@JsonIgnore
 	private Set<UserRole> userRoles = new HashSet<>();
 
@@ -131,9 +132,8 @@ public class User {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+
 	public User() {
 	}
-
-	
 
 }
