@@ -34,9 +34,24 @@ export class LoginComponent implements OnInit {
     }
     //request server to generate token
     this.login.generateToken(this.loginData).subscribe({
-      next:(data)=>{
-        console.log("success login");
-        console.log(data);
+      next:(data:any)=>{
+        console.log("login success");
+        // console.log(data);
+        
+        //login --> save in local storage
+        this.login.loginUser(data.token);
+        this.login.getCurrentUser().subscribe({
+          next:(data:any)=>{
+            this.login.setUser(data)
+            console.log(data);
+            //redirect after login based on role
+            //redirect ----ADMIN
+            //redirct ----- USER
+          }
+        });
+          
+
+
       },
       error:(e)=>{
         console.log("login error")

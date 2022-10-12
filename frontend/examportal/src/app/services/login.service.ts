@@ -60,5 +60,9 @@ export class LoginService {
     return user.authorities[0].authority;
   }
 
+  //getcurrentuser
+  public getCurrentUser(){
+    return this.http.get(`${baseUrl}/current-user`);
+  }
 
 }
