@@ -37,10 +37,10 @@ public class mySecurityConfig extends WebSecurityConfigurerAdapter {
     public BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-    @Bean
-    public PasswordEncoder nPasswordEncoder(){
-        return NoOpPasswordEncoder.getInstance();
-    }
+    // @Bean
+    // public PasswordEncoder nPasswordEncoder(){
+    //     return NoOpPasswordEncoder.getInstance();
+    // }
     
 
     @Bean
@@ -52,7 +52,7 @@ public class mySecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // TODO Auto-generated method stub
         //change encoder
-        auth.userDetailsService(this.userDetailsServiceimpl).passwordEncoder(nPasswordEncoder());
+        auth.userDetailsService(this.userDetailsServiceimpl).passwordEncoder(passwordEncoder());
 
     }
 
