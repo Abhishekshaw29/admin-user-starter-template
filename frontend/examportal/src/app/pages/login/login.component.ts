@@ -44,15 +44,18 @@ export class LoginComponent implements OnInit {
         this.login.getCurrentUser().subscribe({
           next: (data: any) => {
             this.login.setUser(data)
+
             console.log(data);
             //redirect after login based on role
             if (this.login.getUserRole() == "ADMIN") {
               //admin dashboard
+              this.login.LoginStatusSubject.next(true);
               return this.router.navigate([`/admin`]);
 
             }
             else if (this.login.getUserRole() == "USER") {
               //user dashboard
+              this.login.LoginStatusSubject.next(true);
               return this.router.navigate([`/`]);
             }
             else {
