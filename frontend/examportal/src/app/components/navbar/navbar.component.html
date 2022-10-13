@@ -1,23 +1,45 @@
-<p>
-  <mat-toolbar color="accent">
-    <button [routerLink]="''" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>code</mat-icon>
-    </button>
-    <span>Quizrr</span>
-    <span class="example-spacer"></span>
-    <button mat-button *ngIf="!isLoggedIn" [routerLink]="'/login'">Login
-    </button>
-    <button class="mx-2" *ngIf="isLoggedIn" mat-button (click)="userDetails()">{{user.firstName}}
-    </button>
-    <button class="mx-2" *ngIf="!isLoggedIn" mat-button [routerLink]="'signup'">Register
-    </button>
-    <a class="mx-2" *ngIf="isLoggedIn" (click)="logout()" mat-button [routerLink]="'/'">
-      <mat-icon>logout</mat-icon>
-    </a>
+<!--===========Nav Bar=================-->
+      <section class="nav-bar">
+       <a [routerLink]="'/'"><div class="logo">Go Trip</div></a> 
+        <ul class="menu" >
+            <li><a *ngIf="isLoggedIn" href="#">home</a></li>
+            <li><a *ngIf="isLoggedIn" href="#">tours</a></li>
+            <li><a *ngIf="isLoggedIn" href="#">package</a></li>
+            <li><a  *ngIf="isLoggedIn" href="#">blog</a></li>
+            <li><a *ngIf="isLoggedIn" href="#">About</a></li>
+            <li><a *ngIf="isLoggedIn" href="#">contact</a></li>
+            <li>
+              <a *ngIf="!isLoggedIn" [routerLink]="'/login'">Login</a>
+            </li>
+            <li> <a  *ngIf="isLoggedIn"  (click)="userDetails()">{{user.firstName}}
+            </a></li>
+            <li> 
+              <a *ngIf="!isLoggedIn" [routerLink]="'signup'">Register
+              </a></li>
+            <li><a  *ngIf="isLoggedIn" (click)="logout()" [routerLink]="'/'">
+              <mat-icon>logout</mat-icon>
+            </a></li>          
+        </ul>
+    
+    </section>
+
+
 
     <!--  -->
-
-
-
-  </mat-toolbar>
-</p>
+    <!-- <mat-toolbar color="accent">
+      <button [routerLink]="''" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>code</mat-icon>
+      </button>
+      <span>Quizrr</span>
+      <span class="example-spacer"></span>
+      <button mat-button *ngIf="!isLoggedIn" [routerLink]="'/login'">Login
+      </button>
+      <button class="mx-2" *ngIf="isLoggedIn" mat-button (click)="userDetails()">{{user.firstName}}
+      </button>
+      <button class="mx-2" *ngIf="!isLoggedIn" mat-button [routerLink]="'signup'">Register
+      </button>
+      <a class="mx-2" *ngIf="isLoggedIn" (click)="logout()" mat-button [routerLink]="'/'">
+        <mat-icon>logout</mat-icon>
+      </a>
+    </mat-toolbar> -->
+    <!--  -->

@@ -1,5 +1,6 @@
 package com.exam.portal.service;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
@@ -19,5 +20,7 @@ public interface UserService {
     public User updateUser(User user) throws Exception;
 
     public void deleteByUsername(String username) throws Exception;
+
+    public List<User> getAllUserService();
 
 }

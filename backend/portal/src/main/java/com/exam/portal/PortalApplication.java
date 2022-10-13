@@ -14,7 +14,9 @@ public class PortalApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
+		
 		System.out.println("I am running fine");
+
 		
 	}
 

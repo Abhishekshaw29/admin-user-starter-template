@@ -1,12 +1,12 @@
 package com.exam.portal.serviceimpl;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.portal.exception.userFoundException;
 import com.exam.portal.models.User;
 import com.exam.portal.models.UserRole;
 import com.exam.portal.repo.RoleRepository;
@@ -28,7 +28,7 @@ public class userServiceimpl implements UserService{
 
        User local =  this.userRepository.findByUsername(user.getUserName());
        if(local != null){
-        throw new userFoundException("username is taken !! Try diffrent");
+        throw new Exception("user already present");
        }
        else{
         for (UserRole ur : userRoles) {
@@ -66,6 +66,13 @@ public class userServiceimpl implements UserService{
 
         User user = this.getByUser(username);
         this.userRepository.delete(user);
+    }
+
+    @Override
+    public List<User> getAllUserService() {
+        // TODO Auto-generated method stub
+        List<User> list = this.userRepository.findAll();
+        return list;
     }
     
     

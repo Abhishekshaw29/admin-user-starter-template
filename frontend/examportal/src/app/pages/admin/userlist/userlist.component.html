@@ -1,0 +1,24 @@
+<div class="container my-4">
+        <div class="row">
+            <div class="col-sm-6 my-1"  *ngFor="let user of users">
+              <div class="card border-success mb-3">
+                <div class="card-header bg-transparent border-success">ID - {{user.userId}}</div>
+                <img class="card-img-top" [src]="user.profile" alt="Card image cap">
+                <div class="card-body text-success">
+                  <h3 class="card-title">username : {{user.username}}</h3>
+                  <h3 class="card-title">firstname : {{user.firstName}}</h3>
+                  <h3 class="card-title">lastname : {{user.lastName}}</h3>
+                  <h3 class="card-title">email : {{user.email}}</h3>
+                  <h3 class="card-title">phone : {{user.phone}}</h3>
+                  <h3 class="card-title">enabled : {{user.enabled}}</h3>
+             
+                </div>
+                <div class="text-center card-footer bg-transparent border-success">
+                  <a href="#" class="btn btn-primary">more info</a>
+                  <a href="#" class="btn btn-warning mx-1">update details</a>
+                  <a href="#" class="btn btn-danger">delete</a>
+                </div>
+              </div>
+            </div>
+   
+</div>

@@ -1,6 +1,7 @@
 package com.exam.portal.controller;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,13 @@ public class UserController {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    //get List of all user
+    @GetMapping("/alluser")
+    public List<User> getAllUser(){
+        List<User> userlist = this.userService.getAllUserService();
+        return userlist;
+        
+    }
 
     //create user
     @PostMapping("/")

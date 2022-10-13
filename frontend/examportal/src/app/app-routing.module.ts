@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { UserlistComponent } from './pages/admin/userlist/userlist.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
@@ -35,6 +36,12 @@ const routes: Routes = [
     component:UserDashboardComponent,
     pathMatch:'full',
     canActivate:[UsergaurdGuard],
+  },
+  {
+    path:'users',
+    component:UserlistComponent,
+    pathMatch:'full',
+    canActivate:[AdmingaurdGuard]
   }
 ];
 
