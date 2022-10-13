@@ -14,9 +14,9 @@
              
                 </div>
                 <div class="text-center card-footer bg-transparent border-success">
-                  <a href="#" class="btn btn-primary">more info</a>
-                  <a href="#" class="btn btn-warning mx-1">update details</a>
-                  <a href="#" class="btn btn-danger">delete</a>
+                  <a (click)="showUser(user)" class="btn btn-primary">more info</a>
+                  <a  class="btn btn-warning mx-1">update details</a>
+                  <a (click)="deleteUser(user.username)" class="btn btn-danger">delete</a>
                 </div>
               </div>
             </div>

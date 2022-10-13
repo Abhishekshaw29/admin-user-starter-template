@@ -11,14 +11,20 @@
             <li>
               <a *ngIf="!isLoggedIn" [routerLink]="'/login'">Login</a>
             </li>
-            <li> <a  *ngIf="isLoggedIn"  (click)="userDetails()">{{user.firstName}}
+            <li> <a  *ngIf="isLoggedIn && login.getUserRole()=='USER'" [routerLink]="'/user'">{{user.firstName}}
+            </a></li>
+            <li> <a  *ngIf="isLoggedIn && login.getUserRole()=='ADMIN'" (click)="getUser()">{{user.firstName}}
             </a></li>
             <li> 
               <a *ngIf="!isLoggedIn" [routerLink]="'signup'">Register
               </a></li>
-            <li><a  *ngIf="isLoggedIn" (click)="logout()" [routerLink]="'/'">
+              <li><a  *ngIf="isLoggedIn && login.getUserRole()=='ADMIN'" [routerLink]="'/admin'">
+              <mat-icon>security</mat-icon>
+              </a></li> 
+            <li><a  *ngIf="isLoggedIn" (click)="logout()">
               <mat-icon>logout</mat-icon>
-            </a></li>          
+            </a></li>
+                      
         </ul>
     
     </section>

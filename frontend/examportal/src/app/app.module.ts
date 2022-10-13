@@ -24,6 +24,7 @@ import { authIntercepterProviders } from './services/auth.intercepter';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { UserlistComponent } from './pages/admin/userlist/userlist.component';
+import { AdminProfileComponent } from './pages/admin/admin-profile/admin-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { UserlistComponent } from './pages/admin/userlist/userlist.component';
     DashboardComponent,
     UserDashboardComponent,
     UserlistComponent,
+    AdminProfileComponent,
    
   ],
   imports: [

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, Routes } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private login:LoginService,private routes:Router) { }
 
   ngOnInit(): void {
+    if(!this.login.isLoggedIn()){
+      this.routes.navigate([``]);
+    }
   }
 
 }

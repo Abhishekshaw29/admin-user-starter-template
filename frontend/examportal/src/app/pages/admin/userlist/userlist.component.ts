@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -9,9 +10,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserlistComponent implements OnInit {
 
-  constructor(private login:LoginService,private user:UserService) { }
+  constructor(private login:LoginService,private routes:Router,private user:UserService) { }
   users:any;
   ngOnInit(): void {
+   
     if(this.login.isLoggedIn()){
     this.user.allUser().subscribe({
       next:(data)=>{
@@ -22,6 +24,17 @@ export class UserlistComponent implements OnInit {
       }
     })
   }
+  else{
+    this.routes.navigate([``]);
+  }
+  }
+  public showUser(userdata:any){
+    this.user.setMessage(userdata);
+    this.routes.navigate([`/profile`]);
+  }
+
+  public deleteUser(username:any){
+    
   }
   
 

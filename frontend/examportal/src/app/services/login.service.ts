@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import baseUrl from './helper';
 
@@ -8,7 +9,7 @@ import baseUrl from './helper';
 })
 export class LoginService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private routes:Router) { }
 
   public LoginStatusSubject = new Subject<Boolean>();
 

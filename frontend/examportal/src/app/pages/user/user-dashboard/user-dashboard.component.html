@@ -1,1 +1,39 @@
-<p>user-dashboard works!</p>
+<div class="container mt-5">
+
+  <div class="row d-flex justify-content-center">
+
+    <div class="col-md-7 py-4">
+
+      <div class="card">
+
+        <div class="text-center">
+          <img [src]="user.profile" class="rounded-circle">
+        </div>
+
+        <div class="text-center my-2">
+          <span class="bg-secondary  p-1 px-4 rounded text-white">{{user.username}}</span>
+          <h5 class="mt-2 mb-0">{{user.firstName}} {{user.lastName}}</h5>
+          <span>+91 {{user.phone}}</span>
+          <h6>{{user.email}}</h6>
+
+          <div class="px-4 mt-1">
+            <p class="fonts">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. </p>
+
+          </div>
+          <div class="buttons">
+
+            <button class="btn btn-outline-warning px-4">update</button>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

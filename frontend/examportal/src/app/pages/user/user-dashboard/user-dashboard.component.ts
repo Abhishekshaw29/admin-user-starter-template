@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
-
-  constructor() { }
+  isLoggedIn=false;
+  user:any=null;
+  constructor(private login:LoginService,private userService:UserService) { }
 
   ngOnInit(): void {
+    this.isLoggedIn=this.login.isLoggedIn();
+    this.user=this.login.getUser();
+    this.login.LoginStatusSubject.asObservable().subscribe({
+      next:(data)=>{
+        this.isLoggedIn=this.login.isLoggedIn();
+        this.user=this.login.getUser();
+      }
+  });
   }
 
+ 
 }
