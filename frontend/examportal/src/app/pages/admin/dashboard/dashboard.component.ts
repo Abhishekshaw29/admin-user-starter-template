@@ -16,5 +16,11 @@ export class DashboardComponent implements OnInit {
       this.routes.navigate([``]);
     }
   }
+  public loadProfile(){
+    this.routes.navigate(['/profile']);
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
+  }
 
 }

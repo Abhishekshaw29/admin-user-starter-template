@@ -24,4 +24,9 @@ export class UserService {
   public allUser(){
     return this.http.get(`${baseUrl}/user/alluser`);
   }
+
+  //delete the user
+  public deleteUser(username:any){
+    return this.http.delete(`${baseUrl}/user/delete/${username}`);
+  }
 }

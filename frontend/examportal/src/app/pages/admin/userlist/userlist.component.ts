@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-userlist',
@@ -34,7 +35,16 @@ export class UserlistComponent implements OnInit {
   }
 
   public deleteUser(username:any){
-    
+    this.user.deleteUser(username).subscribe({
+      next:(data)=>{
+        Swal.fire('Deleted user :'+ username);
+      },
+      error:(e)=>{
+        console.log(e);
+      }
+    })
+    Swal.fire('Deleted user :'+ username);
+    location.reload();
   }
   
 

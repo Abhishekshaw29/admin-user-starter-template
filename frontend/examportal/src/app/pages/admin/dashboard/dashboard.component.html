@@ -5,7 +5,7 @@
         <img class="card-img-top" src="../../../../assets/travel.png" alt="Card image cap">
         <div class="card-body text-warning">
         </div>
-        <button [routerLink]="'/users'" class="btn btn-lg btn-warning">TOURS</button>
+        <button [routerLink]="'/travel'" class="btn btn-lg btn-warning">TOURS</button>
       </div>
     </div>
     <div class="col-sm-6">
@@ -13,7 +13,7 @@
         <img class="card-img-top" src="../../../../assets/tours.jpg" alt="Card image cap">
         <div class="card-body text-primary">
         </div>
-        <button [routerLink]="'/users'" class="btn btn-lg btn-primary">PACKAGE</button>
+        <button [routerLink]="'/package'" class="btn btn-lg btn-primary">PACKAGE</button>
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
         <img class="card-img-top" src="../../../../assets/admin image.jpg" alt="Card image cap">
         <div class="card-body text-danger">
         </div>
-        <button [routerLink]="'/users'" class="btn btn-lg btn-danger">ADMIN</button>
+        <button (click)="loadProfile()" class="btn btn-lg btn-danger">ADMIN</button>
       </div>
     </div>
   </div>

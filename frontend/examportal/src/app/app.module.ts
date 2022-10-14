@@ -25,6 +25,13 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { UserlistComponent } from './pages/admin/userlist/userlist.component';
 import { AdminProfileComponent } from './pages/admin/admin-profile/admin-profile.component';
+import { PackageComponent } from './pages/admin/package/package.component';
+import { PackagesComponent } from './pages/packages/packages.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { BlogComponent } from './pages/blog/blog.component';
+import { TravelComponent } from './pages/admin/travel/travel.component';
+import { TravelsComponent } from './pages/travels/travels.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +44,13 @@ import { AdminProfileComponent } from './pages/admin/admin-profile/admin-profile
     UserDashboardComponent,
     UserlistComponent,
     AdminProfileComponent,
+    PackageComponent,
+    PackagesComponent,
+    AboutComponent,
+    ContactComponent,
+    BlogComponent,
+    TravelComponent,
+    TravelsComponent,
    
   ],
   imports: [

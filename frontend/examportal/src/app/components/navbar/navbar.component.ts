@@ -32,10 +32,11 @@ export class NavbarComponent implements OnInit {
     location.reload();
   }
   public getUser(){
-    location.reload();
     this.routes.navigate([`/profile`]);
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
     
-
   }
 
 }
