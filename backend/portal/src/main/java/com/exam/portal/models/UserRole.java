@@ -59,6 +59,7 @@ public class UserRole {
     //one role can have many user
     @ManyToOne(fetch = FetchType.EAGER)
     private Role role;
+    
 
 
 }

@@ -29,4 +29,7 @@ export class UserService {
   public deleteUser(username:any){
     return this.http.delete(`${baseUrl}/user/delete/${username}`);
   }
+  public bookPackages(packages:any,username:any){
+    return this.http.post(`${baseUrl}/user/booked/${username}`,packages);
+  }
 }

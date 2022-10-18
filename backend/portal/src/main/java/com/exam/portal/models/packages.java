@@ -2,88 +2,91 @@ package com.exam.portal.models;
 
 import java.util.Date;
 
-public class packages {
+import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.*;
+
+
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
+@Entity
+public class Packages {
     
-    private String id;
+    @Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String packagename;
     private String startpoint;
     private String destination;
-    private Date date;
+    private String date;
     private Long price;
-    private Long ticketCount;
+
+
+
+    private String photo="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293736/james-wheeler_xqmq2y.jpg";
+    private Integer ticketCount;
     private String Description;
     private String Duration;
-
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "packages")
+	private Set<UserPackages> UserPackages = new HashSet<>();
+    public String getPhoto() {
+        return photo;
+    }
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 
     
 
-    
-    public String getId() {
-        return id;
+    public Packages() {
     }
-
-
-    public void setId(String id) {
-        this.id = id;
+    public Set<UserPackages> getUserPackages() {
+        return UserPackages;
     }
-
-
+    public void setUserPackages(Set<UserPackages> userPackages) {
+        UserPackages = userPackages;
+    }
+    public String getDate() {
+        return date;
+    }
+    public void setDate(String date) {
+        this.date = date;
+    }
     public String getPackagename() {
         return packagename;
     }
-
-
     public void setPackagename(String packagename) {
         this.packagename = packagename;
     }
-
-
     public String getStartpoint() {
         return startpoint;
     }
-
-
     public void setStartpoint(String startpoint) {
         this.startpoint = startpoint;
     }
-
-
     public String getDestination() {
         return destination;
     }
-
-
     public void setDestination(String destination) {
         this.destination = destination;
     }
-
-
-    public Date getDate() {
-        return date;
-    }
-
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-
     public Long getPrice() {
         return price;
     }
-
 
     public void setPrice(Long price) {
         this.price = price;
     }
 
 
-    public Long getTicketCount() {
+    public Integer getTicketCount() {
         return ticketCount;
     }
 
 
-    public void setTicketCount(Long ticketCount) {
+    public void setTicketCount(Integer ticketCount) {
         this.ticketCount = ticketCount;
     }
 
@@ -108,13 +111,13 @@ public class packages {
     }
 
 
-    public packages(String duration) {
+    public Packages(String duration) {
         Duration = duration;
     }
 
 
-    public packages(String id, String packagename, String startpoint, String destination, Date date, Long price,
-            Long ticketCount, String description, String duration) {
+    public Packages(Long id, String packagename, String startpoint, String destination, String date, Long price,
+            Integer ticketCount, String description, String duration) {
         this.id = id;
         this.packagename = packagename;
         this.startpoint = startpoint;
@@ -125,7 +128,13 @@ public class packages {
         Description = description;
         Duration = duration;
     }
+    public Long getId() {
+        return id;
+    }
 
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
 }

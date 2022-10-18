@@ -46,6 +46,16 @@ public class User implements UserDetails {
 	@JsonIgnore
 	private Set<UserRole> userRoles = new HashSet<>();
 
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+	private Set<UserPackages> userPackages = new HashSet<>();
+
+	public Set<UserPackages> getUserPackages() {
+		return userPackages;
+	}
+
+	public void setUserPackages(Set<UserPackages> userPackages) {
+		this.userPackages = userPackages;
+	}
 	public Set<UserRole> getUserRoles() {
 		return userRoles;
 	}
@@ -175,6 +185,10 @@ public class User implements UserDetails {
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
 		return true;
+	}
+
+	public void addUserPackages(UserPackages userpackages) {
+		this.getUserPackages().add(userpackages);
 	}
 
 }

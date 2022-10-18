@@ -4,10 +4,14 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import javax.persistence.EntityManager;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.exam.portal.models.Packages;
 import com.exam.portal.models.User;
+import com.exam.portal.models.UserPackages;
 import com.exam.portal.models.UserRole;
 import com.exam.portal.repo.RoleRepository;
 import com.exam.portal.repo.UserRepository;
@@ -20,6 +24,8 @@ public class userServiceimpl implements UserService{
     private UserRepository userRepository;
     @Autowired
     private RoleRepository roleRepository;
+    @Autowired 
+    private EntityManager entityManager;
 
     //create user using role
     @Override
@@ -73,6 +79,12 @@ public class userServiceimpl implements UserService{
         // TODO Auto-generated method stub
         List<User> list = this.userRepository.findAll();
         return list;
+    }
+
+    @Override
+    public void bookPackage(Packages packages,String username){
+        User local = this.userRepository.findByUsername(username);
+        local.addUserPackages(new UserPackages(local, packages));
     }
     
     

@@ -1,8 +1,14 @@
 package com.exam.portal;
 
+import java.util.*;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.exam.portal.models.User;
+import com.exam.portal.models.UserPackages;
+import com.exam.portal.repo.UserRepository;
 
 @SpringBootApplication
 public class PortalApplication implements CommandLineRunner {
@@ -17,7 +23,6 @@ public class PortalApplication implements CommandLineRunner {
 		
 		System.out.println("I am running fine");
 
-		
 	}
 
 }

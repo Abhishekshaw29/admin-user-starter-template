@@ -30,8 +30,13 @@ import { PackagesComponent } from './pages/packages/packages.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { BlogComponent } from './pages/blog/blog.component';
-import { TravelComponent } from './pages/admin/travel/travel.component';
-import { TravelsComponent } from './pages/travels/travels.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatStepperModule} from '@angular/material/stepper';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { BookedComponent } from './pages/booked/booked.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,8 +54,8 @@ import { TravelsComponent } from './pages/travels/travels.component';
     AboutComponent,
     ContactComponent,
     BlogComponent,
-    TravelComponent,
-    TravelsComponent,
+    CheckoutComponent,
+    BookedComponent,
    
   ],
   imports: [
@@ -67,8 +72,12 @@ import { TravelsComponent } from './pages/travels/travels.component';
     MatSnackBarModule,
     MatCardModule,
     MatToolbarModule,
-    MatIconModule
-
+    MatIconModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatStepperModule
     
   ],
   providers: [authIntercepterProviders],

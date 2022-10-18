@@ -1,1 +1,155 @@
-<p>package works!</p>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Package</th>
+        <th scope="col">Depature</th>
+        <th scope="col">Arrival</th>
+        <th scope="col">Date</th>
+        <th scope="col">Price/head</th>
+        <th scope="col">ticketCount</th>
+        <th scope="col">actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let package of packageList">
+        <th scope="row">{{package.id}}</th>
+        <td>{{package.packagename}}</td>
+        <td>{{package.startpoint}}</td>
+        <td>{{package.destination}}</td>
+        <td>{{package.date}}</td>
+        <td>{{package.price}}</td>
+        <td>{{package.ticketCount}}</td>
+        <td>
+          
+          <button class="btn mx-21 btn btn-warning">update</button>
+          <button class="mx-2 btn btn btn-danger" (click)="deletePackage(package.id)">delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!--  -->
+
+<div class="container my-4 text-center">
+<button class="btn btn-lg btn-success" (click)="makeSpace()">Create Package</button>
+</div>
+<div class="container my-4 text-center" id="myDIV">
+  <section class=" gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;width: auto;">
+            <div class="card-body">
+              <h1 class="mb-4 pb-2 pb-md-0 mb-md-5">New Package</h1>
+              <!-- {{packages|json}} -->
+              <form (ngSubmit)="formSubmit()">
+  
+                <div class="row">
+                  <div class="text-center">
+  
+                    <div class="form-outline">
+                      <label class="form-label">PACKAGE NAME</label>
+                      <input type="text" required name="packagename" [(ngModel)]="packages.packagename"  class="form-control form-control-lg" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 my-4">
+  
+                    <div class="form-outline">
+                      <label class="form-label" >SOURCE</label>
+                      <input type="text" required name="startpoint" [(ngModel)]="packages.startpoint" class="form-control form-control-lg" />
+                 
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 my-4">
+  
+                    <div class="form-outline">
+                      <label class="form-label" >DESTINATION</label>
+                      <input type="text" required name="destination" [(ngModel)]="packages.destination"  class="form-control form-control-lg" />
+               
+                    </div>
+  
+                  </div>
+                </div>
+             
+
+                <div class="row">
+                  <div class="col-md-6 my-4">
+  
+                    <div class="form-outline">
+                      <label class="form-label" for="firstName">DATE</label>
+                      <input type="date" required name="date" [(ngModel)]="packages.date" class="form-control form-control-lg" />
+                
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 my-4">
+  
+                    <div class="form-outline">
+                      <label class="form-label" for="lastName">DURATION</label>
+                      <input type="text"required name="duration" [(ngModel)]="packages.duration" class="form-control form-control-lg" />
+                      
+                    </div>
+  
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="my-4">
+  
+                    <div class="form-outline">
+                      <label class="form-label">PRICE</label>
+                      <input type="number" required name="price" [(ngModel)]="packages.price" class="form-control form-control-lg" />
+
+                    </div>
+  
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 my-4">
+  
+                    <div class="form-outline">
+                      <label class="form-label" >TICKET QUANTITY</label>
+                      <input type="number" required name="ticketCount" [(ngModel)]="packages.ticketCount"  class="form-control form-control-lg" />
+                
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 my-4">
+  
+                    <div class="form-outline">
+                      <label class="form-label">IMAGE</label>
+                      <input type="url" name="photo" [(ngModel)]="packages.photo" class="form-control form-control-lg" />
+                      
+                    </div>
+  
+                  </div>
+                </div>
+             
+                <div class="row">
+                  <div class="my-4">
+                    <label class="form-label" for="firstName">DESCRIPTION</label>
+                    <div class="form-outline">
+                     
+                    <textarea name="Description" required="true" name="description" [(ngModel)]="packages.description" cols="100" rows="2"></textarea>
+                    </div>
+  
+                  </div>
+                </div>
+                <div class="mt-4 pt-2">
+                  <button class="btn btn-outline-dark btn-lg" type="submit">SUBMIT</button>
+                </div>
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

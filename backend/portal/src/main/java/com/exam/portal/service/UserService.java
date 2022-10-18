@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
+import com.exam.portal.models.Packages;
 import com.exam.portal.models.User;
 import com.exam.portal.models.UserRole;
 
@@ -22,5 +23,7 @@ public interface UserService {
     public void deleteByUsername(String username) throws Exception;
 
     public List<User> getAllUserService();
+
+    public void bookPackage(Packages packages, String username);
 
 }

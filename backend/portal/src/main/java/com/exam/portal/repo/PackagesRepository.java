@@ -1,11 +1,9 @@
 package com.exam.portal.repo;
-
+import com.exam.portal.models.Packages;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.exam.portal.models.Role;
-
 @Repository
-public interface RoleRepository extends JpaRepository<Role,Long> {
+public interface PackagesRepository  extends JpaRepository<Packages,Long>{
     
 }
