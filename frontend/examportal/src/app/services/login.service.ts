@@ -38,6 +38,7 @@ export class LoginService {
   public logout() {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
+    localStorage.removeItem('id');
     return true;
   }
   // get token 
@@ -67,6 +68,7 @@ export class LoginService {
   //getcurrentuser
   public getCurrentUser(){
     let user:any = this.http.get(`${baseUrl}/current-user`);
+    localStorage.setItem('id',user.id);
     return user;
   }
 

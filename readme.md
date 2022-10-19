@@ -1,34 +1,35 @@
-PLAN YOUR TRIP
-________________________________________________________
-TECHSTACK
+PLAN YOUR TRIP  
+________________________________________________________  
+TECHSTACK    
 ----------
-BackEnd - SpringBoot
-FrontEnd - angular
-DB - MySql
-junit test
-karma test
-____________________
+BackEnd - SpringBoot  
+FrontEnd - angular  
+DB - MySql  
+junit test  
+karma test  
+____________________  
 
-FUNCTIONAL COMPONENT
---------------------
+FUNCTIONAL COMPONENT  
+--------------------    
 
-USER ->
-    LOGIN
-    REGISTER
-    BOOK PACKAGE
-    CANCEL PACKAGE
-    VIEW PACKAGE
-    UPDATE PROFILE
-    SEARCH PACKAGE
-ADMIN ->
-    LOGIN 
-    REGISTER
-    CRUD IN PACKAGE
-    CRUD IN USER
-    SEE BOOKING LIST
-    SEE USER LIST
-___________________
+USER ->    
+    LOGIN  
+    REGISTER,  
+    BOOK PACKAGE,  
+    CANCEL PACKAGE,  
+    VIEW PACKAGE,  
+    UPDATE PROFILE,  
+    SEARCH PACKAGE,  
+ADMIN ->  
+    LOGIN,  
+    REGISTER,  
+    CRUD IN PACKAGE,  
+    CRUD IN USER,  
+    SEE BOOKING LIST,  
+    SEE USER LIST,   
+___________________    
 
-Note: implemented using spring-security-core using jwt auth
+Note: implemented using spring-security-core using jwt auth      
 
-future scope : search functionalites, take image instead of url,karma testing
+    
+Future scope : search functionalites, take image instead of url,karma testing    
