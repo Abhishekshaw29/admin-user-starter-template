@@ -13,6 +13,7 @@ import com.exam.portal.models.Packages;
 import com.exam.portal.models.User;
 import com.exam.portal.models.UserPackages;
 import com.exam.portal.models.UserRole;
+import com.exam.portal.repo.PackagesRepository;
 import com.exam.portal.repo.RoleRepository;
 import com.exam.portal.repo.UserRepository;
 import com.exam.portal.service.UserService;
@@ -24,8 +25,9 @@ public class userServiceimpl implements UserService{
     private UserRepository userRepository;
     @Autowired
     private RoleRepository roleRepository;
-    @Autowired 
-    private EntityManager entityManager;
+
+    @Autowired
+    private PackagesRepository packagesRepository;
 
     //create user using role
     @Override
@@ -82,10 +84,20 @@ public class userServiceimpl implements UserService{
     }
 
     @Override
-    public void bookPackage(Packages packages,String username){
-        User local = this.userRepository.findByUsername(username);
-        local.addUserPackages(new UserPackages(local, packages));
+    public User bookPackage(Long userId, Long packageId) {
+        // TODO Auto-generated method stub
+        User user = this.userRepository.findById(userId).get();
+        Packages pack = this.packagesRepository.findById(packageId).get();
+        pack.setTicketCount(pack.getTicketCount()-1);
+        user.addPackage(pack);
+        return userRepository.save(user);
+       
     }
-    
+
+    @Override
+    public List<Packages> getAllBookings(Long userId) {
+        User user = this.userRepository.findById(userId).get();
+        return user.getPackageList();
+    }
     
 }

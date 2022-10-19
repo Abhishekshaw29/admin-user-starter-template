@@ -23,14 +23,28 @@ public class Packages {
     private String date;
     private Long price;
 
+    @ManyToMany(mappedBy = "packageList")
+    @JsonIgnore
+    private List<User> userList = new ArrayList<>();
+
+
+    public List<User> getUserList() {
+        return userList;
+    }
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
 
 
     private String photo="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293736/james-wheeler_xqmq2y.jpg";
     private Integer ticketCount;
     private String Description;
     private String Duration;
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "packages")
-	private Set<UserPackages> UserPackages = new HashSet<>();
+
+
+
+
+
     public String getPhoto() {
         return photo;
     }
@@ -38,15 +52,7 @@ public class Packages {
         this.photo = photo;
     }
 
-    
-
     public Packages() {
-    }
-    public Set<UserPackages> getUserPackages() {
-        return UserPackages;
-    }
-    public void setUserPackages(Set<UserPackages> userPackages) {
-        UserPackages = userPackages;
     }
     public String getDate() {
         return date;

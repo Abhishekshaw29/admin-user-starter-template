@@ -21,6 +21,8 @@ import com.exam.portal.models.Packages;
 import com.exam.portal.models.Role;
 import com.exam.portal.models.User;
 import com.exam.portal.models.UserRole;
+import com.exam.portal.repo.PackagesRepository;
+import com.exam.portal.repo.UserRepository;
 import com.exam.portal.service.UserService;
 
 @RestController
@@ -30,6 +32,12 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private PackagesRepository packagesRepository;
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -69,5 +77,17 @@ public class UserController {
         return ResponseEntity.ok("Deleted");
     }
 
+    @PutMapping("/{userId}/booked/{packageId}")
+    User bookUser(@PathVariable("userId") Long userId,@PathVariable("packageId") Long packageId){
+        return this.userService.bookPackage(userId, packageId);
+    }
+
+  
+
+    @GetMapping("/booking/{userId}")
+    public List<Packages> showAllBookedPackages(@PathVariable("userId") Long userId){
+        return this.userService.getAllBookings(userId);
+        
+    }
 
 }

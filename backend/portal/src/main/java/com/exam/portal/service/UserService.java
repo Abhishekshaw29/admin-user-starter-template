@@ -24,6 +24,8 @@ public interface UserService {
 
     public List<User> getAllUserService();
 
-    public void bookPackage(Packages packages, String username);
+    public User bookPackage(Long userId, Long packageId);
+
+    public List<Packages> getAllBookings(Long userId);
 
 }

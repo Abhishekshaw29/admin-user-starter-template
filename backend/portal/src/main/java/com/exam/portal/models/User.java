@@ -1,17 +1,8 @@
 package com.exam.portal.models;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -34,6 +25,30 @@ public class User implements UserDetails {
 	private String profile;
 	private boolean enabled = true;
 
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+	@JsonIgnore
+	private Set<UserRole> userRoles = new HashSet<>();
+
+	@ManyToMany
+	@JoinTable(
+		name = "user_booking",
+		joinColumns= @JoinColumn(name="user_id"),
+		inverseJoinColumns = @JoinColumn(name="package_id")
+	)
+	private List<Packages> packageList = new ArrayList<>();
+
+	public List<Packages> getPackageList() {
+		return packageList;
+	}
+
+	public void setPackageList(List<Packages> packageList) {
+		this.packageList = packageList;
+	}
+
+	public void addPackage(Packages pack) {
+		this.packageList.add(pack);
+	}
+
 	public Long getUserId() {
 		return userId;
 	}
@@ -42,20 +57,6 @@ public class User implements UserDetails {
 		this.userId = userId;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
-	@JsonIgnore
-	private Set<UserRole> userRoles = new HashSet<>();
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
-	private Set<UserPackages> userPackages = new HashSet<>();
-
-	public Set<UserPackages> getUserPackages() {
-		return userPackages;
-	}
-
-	public void setUserPackages(Set<UserPackages> userPackages) {
-		this.userPackages = userPackages;
-	}
 	public Set<UserRole> getUserRoles() {
 		return userRoles;
 	}
@@ -186,9 +187,4 @@ public class User implements UserDetails {
 		// TODO Auto-generated method stub
 		return true;
 	}
-
-	public void addUserPackages(UserPackages userpackages) {
-		this.getUserPackages().add(userpackages);
-	}
-
 }

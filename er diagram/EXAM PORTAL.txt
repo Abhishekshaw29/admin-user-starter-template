@@ -1,6 +1,0 @@
-makemytrip
-
-USER 
-
-ADMIN ----> LOGIN
-STUDENT ---> REGISTER / LOGIN
