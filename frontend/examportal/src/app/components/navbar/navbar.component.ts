@@ -29,7 +29,10 @@ export class NavbarComponent implements OnInit {
   public logout(){
     this.login.logout();
     this.routes.navigate(['/']);
-    location.reload();
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
+
   }
   public getUser(){
     this.routes.navigate([`/profile`]);

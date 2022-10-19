@@ -31,16 +31,4 @@ public class UserPackageController {
 
     @Autowired
     private PackagesRepository packagesRepository;
-
-    @PostMapping("/booked")
-    public ResponseEntity<?> bookPackage(@RequestParam Long packagesId,@RequestParam Long userId) throws Exception{
-        User temp = userRepository.findById(userId).orElse(null);
-        Packages packages = packagesRepository.findById(packagesId).orElse(null);
-        if(temp==null || packages == null) throw new Exception();
-        else{
-        UserPackages userPackages = new UserPackages(temp, packages);
-        this.userPackageService.saveUserPackage(userPackages);
-        return ResponseEntity.ok("success");
-    }
-}
 }

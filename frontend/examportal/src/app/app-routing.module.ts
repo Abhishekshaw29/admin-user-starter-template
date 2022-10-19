@@ -7,6 +7,7 @@ import { PackageComponent } from './pages/admin/package/package.component';
 import { UserlistComponent } from './pages/admin/userlist/userlist.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BookedComponent } from './pages/booked/booked.component';
+import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -89,11 +90,18 @@ const routes: Routes = [
     path:'checkout',
     component:CheckoutComponent,
     pathMatch:'full',
+    canActivate:[UsergaurdGuard],
   },
   {
     path:'booked',
     component:BookedComponent,
     pathMatch:'full',
+  },
+  {
+    path:'cart',
+    component:CartComponent,
+    pathMatch:'full',
+    
   }
 ];
 

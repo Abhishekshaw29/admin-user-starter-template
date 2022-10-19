@@ -11,8 +11,20 @@ import Swal from 'sweetalert2';
 })
 export class CheckoutComponent implements OnInit {
 onSubmit(){
-  Swal.fire("Booked");
-  this.router.navigate(['/']);
+  this.packageService.bookPackages(localStorage.getItem('userId'),this.package.id).subscribe({
+    next:(data)=>{
+      console.log(data);
+    }
+  });
+  Swal.fire(
+    'BOOKED!',
+    'SEE YOU IN TRIP!',
+    'success'
+  )
+  setTimeout(() => {
+    this.router.navigate(['/']);
+  }, 2000);
+ 
 }
 
   constructor(private router:Router

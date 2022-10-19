@@ -7,6 +7,7 @@
             <li><a  *ngIf="isLoggedIn" [routerLink]="'/blog'">blog</a></li>
             <li><a *ngIf="isLoggedIn" [routerLink]="'/about'">About</a></li>
             <li><a *ngIf="isLoggedIn" [routerLink]="'/contact'">contact</a></li>
+          
             <li>
               <a *ngIf="!isLoggedIn" [routerLink]="'/login'">Login</a>
             </li>
@@ -17,9 +18,11 @@
             <li> 
               <a *ngIf="!isLoggedIn" [routerLink]="'signup'">Register
               </a></li>
+              
               <li><a  *ngIf="isLoggedIn && login.getUserRole()=='ADMIN'" [routerLink]="'/admin'">
               <mat-icon>security</mat-icon>
               </a></li> 
+              <li><a *ngIf="isLoggedIn" [routerLink]="'/cart'"><mat-icon>shopping_cart</mat-icon></a></li>
             <li><a  *ngIf="isLoggedIn" (click)="logout()">
               <mat-icon>logout</mat-icon>
             </a></li>

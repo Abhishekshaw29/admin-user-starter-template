@@ -22,6 +22,8 @@ export class LoginService {
   //login user : set token in localstorage
   public loginUser(token: any) {
     localStorage.setItem('token', token);
+    
+
     return true;
   }
   //islogin: user is logged in or not
@@ -38,7 +40,7 @@ export class LoginService {
   public logout() {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
-    localStorage.removeItem('id');
+    localStorage.removeItem('userId');
     return true;
   }
   // get token 
@@ -47,6 +49,7 @@ export class LoginService {
   }
   //SetUserDetails
   public setUser(user:any){
+    localStorage.setItem('userId',user.userId);
     localStorage.setItem('user',JSON.stringify(user));
   }
   //getUserDetails
@@ -68,7 +71,6 @@ export class LoginService {
   //getcurrentuser
   public getCurrentUser(){
     let user:any = this.http.get(`${baseUrl}/current-user`);
-    localStorage.setItem('id',user.id);
     return user;
   }
 

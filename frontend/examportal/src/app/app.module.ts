@@ -37,6 +37,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatStepperModule} from '@angular/material/stepper';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { BookedComponent } from './pages/booked/booked.component';
+import { CartComponent } from './pages/cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +57,7 @@ import { BookedComponent } from './pages/booked/booked.component';
     BlogComponent,
     CheckoutComponent,
     BookedComponent,
+    CartComponent,
    
   ],
   imports: [
